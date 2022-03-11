@@ -1,0 +1,19 @@
+description: >
+  This command checks for licenses in an NPM environment
+# What will this command do?
+# Descriptions should be short, simple, and clear.
+parameters:
+  to:
+    type: string
+    default: "World"
+    description: "Hello to whom?"
+  executor:
+    type: executor
+    default: lts
+executor: <<parameters.executor>>
+steps:
+  - checkout
+  - utils/add_ssh_config
+  - run:
+      name: Install the latest npm
+      command: sudo npm install -g --upgrade npm
